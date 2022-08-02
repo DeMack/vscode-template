@@ -22,5 +22,6 @@ module.exports = {
     rules: {
         'no-constant-condition': ['off'],
         "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-non-null-assertion": ['off']
     }
 }
