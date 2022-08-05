@@ -24,17 +24,17 @@ export async function main(ns: NS): Promise<void> {
     switch (portThreshold) {
         /* eslint-disable no-fallthrough */
         case 5:
-            setupHacks(5, "/startup/start-sql-hacks.js");
+            setupHacks(5, "/startup/start-sql-hacks.js"); // 806
         case 4:
-            setupHacks(4, "/startup/start-http-hacks.js");
+            setupHacks(4, "/startup/start-http-hacks.js"); // 418
         case 3:
-            setupHacks(3, "/startup/start-smtp-hacks.js");
+            setupHacks(3, "/startup/start-smtp-hacks.js"); // 411
         case 2:
-            setupHacks(2, "/startup/start-ftp-hacks.js");
+            setupHacks(2, "/startup/start-ftp-hacks.js"); // 150
         case 1:
-            setupHacks(1, "/startup/start-ssh-hacks.js");
+            setupHacks(1, "/startup/start-ssh-hacks.js"); // 80
         default:
-            setupHacks(0, "/startup/start-nuke-hacks.js");
+            setupHacks(0, "/startup/start-nuke-hacks.js"); // 10
             break;
         /* eslint-enable no-fallthrough */
     }

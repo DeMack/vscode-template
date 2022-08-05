@@ -9,4 +9,5 @@ export async function main(ns: NS): Promise<void> {
     const numOfThreads = Math.floor(freeRam / sharingRam);
 
     ns.run(sharingScript, numOfThreads);
+    ns.alert(`Sharing power: ${ns.getSharePower()}`);
 }

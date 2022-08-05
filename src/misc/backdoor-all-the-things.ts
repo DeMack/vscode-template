@@ -33,6 +33,16 @@ export async function main(ns: NS): Promise<void> {
         return server.numOpenPortsRequired <= portThreshold;
     });
 
+    const promptResult = await ns.prompt(
+        "WARNING: This script takes time to run. \nYou will not be able to leave the terminal until completion. \nAre you sure you wish to continue?",
+        { type: "boolean" }
+    );
+
+    if (!promptResult) {
+        ns.alert("Process has been aborted. Exiting.");
+        return;
+    }
+
     ns.tprint("!!!!!!!! WARNING: This script takes time to run. DO NOT leave the terminal until completion.");
     // sleep to allow for the warning to be read before running
     // TODO: Potentially create an alert that waits for a keystroke to continue

@@ -5,8 +5,8 @@ export async function main(ns: NS): Promise<void> {
         // "n00dles",
         "joesguns",
         "max-hardware",
-        "silver-helix",
-        "rothman-uni",
+        // "silver-helix",
+        // "rothman-uni",
         // "aevum-police",
         // "solaris"
     ]

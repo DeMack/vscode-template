@@ -2,16 +2,31 @@ import { NS } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
     const serverNameRoot = "pserv"
+    const gb = 1_000_000_000;
 
     /** Defaulted to 16, as the base server purchase script is set to 8 */
     const size: number = ns.args && typeof ns.args[0] === "number" ? ns.args[0] : 16;
-    const totalCost = ns.getPurchasedServerCost(size) * 25
+    const formattedSize = ns.nFormat(size * gb, "0.000b");
 
-    if (ns.getPlayer().money < totalCost) throw `cannot upgrade -- not enough money available -- ${ns.nFormat(totalCost, "$0,0.000a")}`;
+    const totalCost = ns.getPurchasedServerCost(size) * 25;
+    const formattedCost = ns.nFormat(totalCost, "$0.000a");
 
-    //TODO: Create alert that displays the server cost and asks for confirmation?
-    ns.run("/pserv/calc-pserv-upgrade-cost.js", 1, size);
-    await ns.sleep(2000); // Sleep to allow for reading what's printed by the above and cancelling the script if desired
+    if (ns.getPurchasedServers().length > 0) {
+        const currentSize = ns.getServerMaxRam("pserv");
+        if (size <= currentSize) throw `Invalid upgrade size: ${formattedSize} is smaller than current capacity`;
+    }
+
+    if (ns.getPlayer().money < totalCost) throw `cannot upgrade to ${formattedSize} -- not enough money available -- ${formattedCost}`;
+
+    const shouldContinue = await ns.prompt(
+        `Cost for upgrading all purchased servers to ${formattedSize} :: ${formattedCost} \nAre you sure you'd like to contiue?`
+    );
+
+    if (!shouldContinue) {
+        ns.alert("Upgrade cancelled");
+        return;
+    }
+
     ns.tprint("Upgrading now.");
 
     ns.scan("home")

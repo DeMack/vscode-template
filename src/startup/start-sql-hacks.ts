@@ -1,7 +1,7 @@
 import { NS, Server } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
-    const hackScript = "/templates/sql-hack-template.js";
+    const hackScript = "/startup/hack-template.js";
     const target = "solaris";
 
     if (!ns.args || ns.args.length < 1 || typeof ns.args[0] !== "string") throw "Could not start ftp hacks";

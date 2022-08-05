@@ -2,7 +2,7 @@ import { NS } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
     const ramSize = 8;
-    const script = "/templates/nuke-hack-template.js";
+    const script = "/startup/hack-template.js";
     const target = "joesguns";
 
     for (let i = 0; i < 25;) {
@@ -10,7 +10,7 @@ export async function main(ns: NS): Promise<void> {
             const hostname = ns.purchaseServer("pserv", ramSize);
 
             await ns.scp(script, hostname);
-            ns.exec(script, hostname, 3, target);
+            ns.exec(script, hostname, 3, target, 62500000, 8);
 
             i++;
         }

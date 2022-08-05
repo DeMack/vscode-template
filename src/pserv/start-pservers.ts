@@ -10,18 +10,19 @@ export async function main(ns: NS): Promise<void> {
 
     const targets = [
         // "joesguns",
-        "max-hardware",
+        // "max-hardware",
         "silver-helix",
-        "rothman-uni"
+        "rothman-uni",
+        "aevum-police",
+        // "solaris"
     ]
 
     const servers = ns.scan("home")
         .filter((server) => server.startsWith("pserv"));
 
-    if (ns.args) {
-        const reset = ns.args.includes("reset");
+    if (ns.args && ns.args.includes("reset")) {
         ns.tprint("Resetting all private servers...");
-        if (reset) servers.forEach((server) => ns.killall(server));
+        servers.forEach((server) => ns.killall(server));
     }
 
     for (const server of servers) {

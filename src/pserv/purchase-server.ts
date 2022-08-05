@@ -10,7 +10,7 @@
 2^8: size: 256GB -- cost: $14.080m/pserv -- total: $352.000m
 2^9: size: 512GB -- cost: $28.160m/pserv -- total: $704.000m
 2^10: size: 1.024TB -- cost: $56.320m/pserv -- total: $1.408b
-Max: size: 1.049PB -- cost: $57.672b/pserv -- total: $1.442t
+Max: size: 1.049PB (1048576) -- cost: $57.672b/pserv -- total: $1.442t
 */
 
 import { NS } from '@ns'
@@ -27,10 +27,10 @@ export async function main(ns: NS): Promise<void> {
     ]
 
     const targets = [
-        // "joesguns",
+        "joesguns",
         "max-hardware",
         "silver-helix",
-        "rothman-uni"
+        // "rothman-uni"
     ]
 
     let targetsValues = targets.values();

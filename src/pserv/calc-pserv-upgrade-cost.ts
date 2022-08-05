@@ -1,7 +1,5 @@
 import { NS } from '@ns'
 
-// TODO: Another that would allow me to see just how high I can go to be under a given pricepoint
-//  e.g. input: 1b would give me a result of 512gb
 export async function main(ns: NS): Promise<void> {
     const gb = 1_000_000_000;
 

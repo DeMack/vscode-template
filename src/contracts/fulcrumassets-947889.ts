@@ -44,6 +44,8 @@
 import { NS } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
+    // NOTE: I can find the height by flooring the sqrt and then just looping down until I find { it % totalCount === 0 }
+
     const width = 5;
 
     const nums = [

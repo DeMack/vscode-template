@@ -20,7 +20,7 @@ export async function main(ns: NS): Promise<void> {
             ns.print(`Cur sec level: ${ns.getServerSecurityLevel(target)} -- ${securityThresh}`);
             await ns.weaken(target);
         } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {
-            ns.print(`Cur money: ${ns.getServerMoneyAvailable(target)} -- ${moneyThresh}`);
+            ns.print(`Cur money: ${ns.nFormat(ns.getServerMoneyAvailable(target), "$0.000a")} -- ${ns.nFormat(moneyThresh, "$0.000a")}`);
             await ns.grow(target);
         } else {
             ns.print("hacking");

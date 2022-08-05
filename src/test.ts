@@ -1,8 +1,6 @@
 import { NS } from '@ns'
+import { validateArgs } from 'misc/utils'
 
 export async function main(ns: NS): Promise<void> {
-    const maxSize = Math.ceil(Math.log(1048576) / Math.log(2));
-
-    ns.tprint(ns.getPurchasedServerMaxRam());
-    ns.tprint(maxSize);
+    ns.tprint(validateArgs(ns.args, 3, ["string", "string", "number"], () => [false, "Custom false msg"]));
 }
