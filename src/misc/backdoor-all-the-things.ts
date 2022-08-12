@@ -65,6 +65,8 @@ export async function main(ns: NS): Promise<void> {
 
         if (hostname === "home" || hostname.startsWith("pserv")) return;
 
+        if (ns.getServer(hostname).backdoorInstalled) return;
+
         doAction(`connect ${hostname}; backdoor`);
         // TODO: Instead of printing these, just collect them in the final list and then print it all in the end
         // TODO: Possibly write them to a file so that they can be referenced later

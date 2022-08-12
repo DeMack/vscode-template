@@ -17,14 +17,15 @@ export async function main(ns: NS): Promise<void> {
         await ns.scp(hackScript, hostname);
     }
 
-    startHack(servers.get(noodles)!, 1, servers.get(noodles)!);
-
     servers.forEach((server => {
         ns.nuke(server.hostname);
     }));
 
+    startHack(servers.get(noodles)!, 1, servers.get(noodles)!);
+
     servers.forEach((server => {
-        startHack(server, Math.floor(server.maxRam / ns.getScriptRam(hackScript)), servers.get(joesguns)!);
+        if (server.hostname !== noodles)
+            startHack(server, Math.floor(server.maxRam / ns.getScriptRam(hackScript)), servers.get(joesguns)!);
     }));
 
     function startHack(server: Server, threads: number, target: Server) {

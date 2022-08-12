@@ -29,7 +29,7 @@ export async function main(ns: NS): Promise<void> {
     const targets = [
         "joesguns",
         "max-hardware",
-        "silver-helix",
+        // "silver-helix",
         // "rothman-uni"
     ]
 

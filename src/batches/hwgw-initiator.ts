@@ -12,7 +12,7 @@ export async function main(ns: NS): Promise<void> {
     const weakenScript = "/batches/weaken.js";
     const growScript = "/batches/grow.js";
 
-    const portThreshold = 3;
+    const portThreshold = 1;
 
     const scannedHosts: string[] = [];
     const servers = new Map<string, Server>();
@@ -65,7 +65,7 @@ export async function main(ns: NS): Promise<void> {
                     && !servers.has(conn)
                 ) {
                     const server = ns.getServer(conn);
-                    if (server.moneyMax > 1 && server.numOpenPortsRequired < portThreshold) servers.set(conn, server);
+                    if (server.moneyMax > 1 && server.numOpenPortsRequired <= portThreshold) servers.set(conn, server);
                 }
 
                 refreshServerData(conn);
@@ -89,7 +89,7 @@ export async function main(ns: NS): Promise<void> {
             const requiredRam = weakenStats.ramRequired + growStats.ramRequired + reweakenStats.ramRequired;
             if (requiredRam > availableRam) {
                 ns.print(`${hostname} ram required: ${ns.nFormat(requiredRam * gb, "0.000b")} is more than ${ns.nFormat(availableRam * gb, "0.000b")} available`);
-                // excludedNodes.push(hostname);
+                excludedNodes.push(hostname);
                 continue;
             } else availableRam -= requiredRam;
 

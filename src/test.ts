@@ -1,6 +1,8 @@
 import { NS } from '@ns'
-import { validateArgs } from 'misc/utils'
 
 export async function main(ns: NS): Promise<void> {
-    ns.tprint(validateArgs(ns.args, 3, ["string", "string", "number"], () => [false, "Custom false msg"]));
+    ns.tprint(ns.codingcontract.getContractType("contract-934199-Netburners.cct", "sigma-cosmetics"));
+    ns.tprint("------------------------------------------------------------------------------------")
+    ns.tprint("------------------------------------------------------------------------------------")
+    ns.tprint(ns.codingcontract.getData("contract-934199-Netburners.cct", "sigma-cosmetics"));
 }

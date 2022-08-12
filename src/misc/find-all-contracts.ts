@@ -6,8 +6,8 @@ export async function main(ns: NS): Promise<void> {
 
     await ServerTree.buildTree(ns).traverseAndExecute(async (host) => {
         const contracts = ns.ls(host, ".cct");
-        if (contracts.length > 0) allContracts.set(host, contracts);
+        if (contracts.length > 0) allContracts.set(host, contracts.map((it) => `${it} -- ${ns.codingcontract.getContractType(it, host)}`));
     });
 
-    ns.tprint(...allContracts);
+    allContracts.forEach((contracts, host) => ns.tprint(`${host}::${contracts}`));
 }

@@ -1,8 +1,9 @@
 import { NS, Server } from '@ns'
 
-const home = "home"
-
 export async function main(ns: NS): Promise<void> {
+    // ns.tail();
+    const home = "home"
+
     const [portThreshold, reset] = checkArgs(ns.args);
 
     const scannedHosts: string[] = [];
@@ -67,22 +68,28 @@ export async function main(ns: NS): Promise<void> {
     }
 
     function hasEnoughRam(server: Server) {
-        return (server.maxRam - server.ramUsed) > 1.6;
+        return (server.maxRam - server.ramUsed) > ns.getScriptRam("/startup/hack-template.js");
     }
 
     function setupHacks(numOfPorts: number, hackStartScript: string) {
         const hackHosts = [...connections.values()]
             .filter((server) => server.numOpenPortsRequired === numOfPorts)
-            .map((server) => JSON.stringify(server))
-            .join("||");
+            .map((server) => JSON.stringify(server));
 
-        ns.run(hackStartScript, 1, hackHosts);
+        if (hackHosts.length < 1) {
+            ns.tprint(`No hosts found for ${hackStartScript}`);
+            return;
+        }
+
+        ns.tprint(`starting ${hackStartScript}`);
+
+        ns.run(hackStartScript, 1, hackHosts.join("||"));
     }
-}
 
-function checkArgs(args: (string | number | boolean)[]) {
-    return [
-        (typeof args[0] === "number") ? args[0] : 5,
-        (args.includes("reset"))
-    ];
+    function checkArgs(args: (string | number | boolean)[]) {
+        return [
+            (typeof args[0] === "number") ? args[0] : 5,
+            (args.includes("reset"))
+        ];
+    }
 }

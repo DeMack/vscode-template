@@ -9,11 +9,11 @@ export async function main(ns: NS): Promise<void> {
     ]
 
     const targets = [
-        // "joesguns",
-        // "max-hardware",
-        "silver-helix",
-        "rothman-uni",
-        "aevum-police",
+        "joesguns",
+        "max-hardware",
+        // "silver-helix",
+        // "rothman-uni",
+        // "aevum-police",
         // "solaris"
     ]
 

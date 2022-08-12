@@ -66,6 +66,6 @@ export async function main(ns: NS): Promise<void> {
         if (growStats.threadsRequired > 0) ns.run(growScript, growStats.threadsRequired, growSleepTime, server.hostname);
         if (growWeakenStats.threadsRequired > 0) ns.run(weakenScript, growWeakenStats.threadsRequired, growWeakenSleepTime, server.hostname, 2);
 
-        await ns.sleep(totalGrowWeakenTime);
+        await ns.sleep(totalGrowWeakenTime + 100);
     }
 }

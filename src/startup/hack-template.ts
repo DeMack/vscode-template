@@ -4,15 +4,15 @@ export async function main(ns: NS): Promise<void> {
     if (!ns.args || ns.args.length < 3) throw "Too few arguments supplied";
 
     if (typeof ns.args[0] !== "string") throw `Invalid target supplied: ${ns.args[0]}`;
-    const target: string = ns.args[0];
+    const target: string = ns.args[0]; // n00dles
     ns.print(target);
 
     if (typeof ns.args[1] !== "number") throw `Invalid money threshold supplied: ${ns.args[1]}`;
-    const moneyThresh: number = ns.args[1];
+    const moneyThresh: number = ns.args[1]; // 13125
     ns.print(moneyThresh);
 
     if (typeof ns.args[2] !== "number") throw `Invalid security threshold supplied: ${ns.args[2]}`;
-    const securityThresh: number = ns.args[2];
+    const securityThresh: number = ns.args[2]; // 5
     ns.print(securityThresh);
 
     while (true) {
