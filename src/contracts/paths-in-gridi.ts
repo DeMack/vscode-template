@@ -1,6 +1,6 @@
 import { NS } from '@ns'
 import IContractSolver, { ContractDataTypes } from '/contracts/contract-daemon';
-import { factorialDivision } from './contract-utils';
+import { factorialDivision } from '/contracts/contract-utils';
 
 /*
 Unique Paths in a Grid I
