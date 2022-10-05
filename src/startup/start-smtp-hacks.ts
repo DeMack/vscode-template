@@ -1,6 +1,8 @@
 import { NS, Server } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
+    // ns.tail();
+
     const hackScript = "/startup/hack-template.js";
     const target = "rothman-uni";
 

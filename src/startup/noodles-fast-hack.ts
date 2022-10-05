@@ -1,6 +1,7 @@
 import { NS } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
+    ns.tail();
     while (ns.getHackingLevel() <= 10) {
         await ns.hack("n00dles");
     }

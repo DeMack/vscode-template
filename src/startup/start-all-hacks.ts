@@ -1,7 +1,9 @@
 import { NS, Server } from '@ns'
 
 export async function main(ns: NS): Promise<void> {
+    // ns.disableLog("scan");
     // ns.tail();
+
     const home = "home"
 
     const [portThreshold, reset] = checkArgs(ns.args);

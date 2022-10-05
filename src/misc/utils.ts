@@ -1,5 +1,17 @@
 import { NS, Server } from '@ns'
 
+export function scanAllTheThings(
+    ns: NS,
+    host: string,
+    currentMap: Map<string, string[]> = new Map()
+): Map<string, string[]> {
+    if (currentMap.has(host)) return currentMap;
+
+    const connections = ns.scan(host);
+    currentMap.set(host, connections);
+    return connections.reduce((prev, cur) => scanAllTheThings(ns, cur, prev), currentMap);
+}
+
 export function buildServerMap(
     ns: NS,
     hostname: string,
@@ -19,8 +31,8 @@ export function validateArgs(
     args: (string | number | boolean)[],
     expectedLength: number,
     expectedTypes: string[],
-    customValidator?: ((args: (string | number | boolean)[]) => (boolean | string)[])
-): (boolean | string)[] {
+    customValidator?: ((args: (string | number | boolean)[]) => [boolean, string])
+): [boolean, string] {
     if (args.length !== expectedLength) return [false, `Invalid args provided. Expected ${expectedLength}, but ${args.length} provided.`];
 
     for (let i = 0; i < args.length; i++) {
@@ -30,5 +42,5 @@ export function validateArgs(
 
     if (customValidator) return customValidator(args);
 
-    return [true];
+    return [true, ""];
 }

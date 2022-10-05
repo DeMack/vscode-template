@@ -1,0 +1,77 @@
+{
+    "hp": {
+        "current": 11,
+        "max": 11
+    },
+    "skills": {
+        "hacking": 288,
+        "strength": 16,
+        "defense": 16,
+        "dexterity": 83,
+        "agility": 83,
+        "charisma": 30,
+        "intelligence": 18
+    },
+    "exp": {
+        "hacking": 350104.3648513127,
+        "strength": 243.33311999997454,
+        "defense": 243.33311999997454,
+        "dexterity": 3411.3331199999748,
+        "agility": 3411.3331199999748,
+        "charisma": 546.9964799999257,
+        "intelligence": 384.80500000000086
+    },
+    "hacking_chance_mult": 1.3824,
+    "mults": {
+        "hacking_chance": 1.3824,
+        "hacking_speed": 1.3824,
+        "hacking_money": 1.3824,
+        "hacking_grow": 1.3824,
+        "hacking": 1.3824,
+        "hacking_exp": 1.3824,
+        "strength": 1.28,
+        "strength_exp": 1.28,
+        "defense": 1.28,
+        "defense_exp": 1.28,
+        "dexterity": 1.28,
+        "dexterity_exp": 1.28,
+        "agility": 1.28,
+        "agility_exp": 1.28,
+        "charisma": 1.28,
+        "charisma_exp": 1.28,
+        "hacknet_node_money": 1.28,
+        "hacknet_node_purchase_cost": 0.72,
+        "hacknet_node_ram_cost": 0.72,
+        "hacknet_node_core_cost": 0.72,
+        "hacknet_node_level_cost": 0.72,
+        "company_rep": 1.28,
+        "faction_rep": 1.28,
+        "work_money": 1.28,
+        "crime_success": 1.28,
+        "crime_money": 1.28,
+        "bladeburner_max_stamina": 1,
+        "bladeburner_stamina_gain": 1,
+        "bladeburner_analysis": 1,
+        "bladeburner_success_chance": 1
+    },
+    "numPeopleKilled": 0,
+    "money": 185005458.58170825,
+    "city": "Sector-12",
+    "location": "Alpha Enterprises",
+    "bitNodeN": 5,
+    "totalPlaytime": 4061195000,
+    "playtimeSinceLastAug": 9521600,
+    "playtimeSinceLastBitnode": 9521600,
+    "jobs": {
+        "FoodNStuff": "Employee",
+        "Alpha Enterprises": "Software Consultant"
+    },
+    "factions": [
+        "Sector-12",
+        "CyberSec"
+    ],
+    "tor": true,
+    "inBladeburner": false,
+    "hasCorporation": false,
+    "entropy": 0
+}
